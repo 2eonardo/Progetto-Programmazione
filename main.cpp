@@ -6,6 +6,6 @@
 // collezione specifica.
 // Usare Observer per indicare quante note stanno in una collezione.
 int main() {
-    std::cout << "Prova 2" << std::endl;
+    std::cout << "Prova 1" << std::endl;
     return 0;
 }
