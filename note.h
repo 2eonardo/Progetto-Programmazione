@@ -13,6 +13,22 @@ class note {
 public:
 explicit note(string t="", string te="", bool b=false);
 
+    const string &getTitle() const;
+
+    void setTitle(const string &title);
+
+    const string &getText() const;
+
+    void setText(const string &text);
+
+    bool isBlocked() const;
+
+    void setBlocked(bool blocked);
+
+    static int getCount();
+
+    static void setCount(int count);
+
 private:
     string title;
     string text;
