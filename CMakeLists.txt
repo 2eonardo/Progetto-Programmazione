@@ -5,4 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Progetto_Programmazione main.cpp
         note.h
-        note.cpp)
+        note.cpp
+        collection.h
+        collection.cpp
+)

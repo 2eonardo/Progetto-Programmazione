@@ -14,6 +14,6 @@ void collection::AddNote(note* b) {
     box.push_back(b);
 }
 void collection::DeleteNote(note *n) {
-    auto it = find(box.begin(), box.end(), n);
-    box.erase(it);
+    auto itr = find(box.begin(), box.end(), n);
+    box.erase(itr);
 }

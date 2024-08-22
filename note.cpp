@@ -2,10 +2,11 @@
 // Created by Leo on 19/08/2024.
 //
 #include "note.h"
+#include "collection.h"
 int note::count = 0;
 note::note(std::string t , std::string te, bool b ): title(t), text(te), blocked(b) {
-    if (this->title == ""){
-        this->title = "Note " + to_string(count);
+    if (title.empty()){
+        title = "Note " + to_string(count);
         count ++;
     }
 }
@@ -40,4 +41,20 @@ int note::getCount() {
 
 void note::setCount(int count) {
     note::count = count;
+}
+void note::DeleteNote() {
+    note::~note();
+}
+
+note::~note() {
+    for(auto itr : directory)
+        itr->DeleteNote(this);
+}
+
+const list<collection *> &note::getDirectory() const {
+    return directory;
+}
+
+void note::setDirectory(const list<collection *> &directory) {
+    note::directory = directory;
 }
