@@ -28,10 +28,6 @@ explicit note(string t="", string te="", bool b=false);
 
     void setBlocked(bool blocked);
 
-    static int getCount();
-
-    static void setCount(int count);
-
     virtual ~note();
 
     void DeleteNote();

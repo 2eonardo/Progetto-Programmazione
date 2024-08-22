@@ -3,6 +3,7 @@
 //
 #include "note.h"
 #include "collection.h"
+#include <iostream>
 int note::count = 0;
 note::note(std::string t , std::string te, bool b ): title(t), text(te), blocked(b) {
     if (title.empty()){
@@ -16,7 +17,10 @@ const string &note::getTitle() const {
 }
 
 void note::setTitle(const string &title) {
-    note::title = title;
+    if(!blocked)
+        note::title = title;
+    else
+        cout << "La nota è bloccata, impossibile modificarla" << endl;
 }
 
 const string &note::getText() const {
@@ -24,7 +28,10 @@ const string &note::getText() const {
 }
 
 void note::setText(const string &text) {
-    note::text = text;
+    if (!blocked)
+        note::text = text;
+    else
+        cout << "La nota è bloccata, impossibile modificarla" << endl;
 }
 
 bool note::isBlocked() const {
@@ -35,15 +42,11 @@ void note::setBlocked(bool blocked) {
     note::blocked = blocked;
 }
 
-int note::getCount() {
-    return count;
-}
-
-void note::setCount(int count) {
-    note::count = count;
-}
 void note::DeleteNote() {
-    note::~note();
+    if (!blocked)
+        note::~note();
+    else
+       cout << "La nota è bloccata, impossibile eliminarla" << endl;
 }
 
 note::~note() {
