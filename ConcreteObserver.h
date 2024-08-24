@@ -16,7 +16,7 @@ public:
 
     void detach() override;
 
-    virtual ~ConcreteObserver() { }
+    virtual ~ConcreteObserver() ;
 
 private:
     int NoteNumber;
