@@ -8,15 +8,27 @@
 #include <string>
 #include <list>
 #include <vector>
+#include "Subject.h"
 using namespace std;
-class collection {
+class collection: public Subject{
 public:
-    collection(string t="");
+    explicit collection(string t="");
+
     void AddNote(note* n);
+
     void DeleteNote(note* n );
+
+    const vector<note *> &getBox() const;
+
+    void registerObserver(Observer * o) override;
+
+    void removeObserver(Observer * o) override;
+
+    virtual void notify() override;
 private:
     string title;
     vector<note*> box;
     static int count;
+    list<Observer *> observers;
 };
 #endif //PROGETTO_PROGRAMMAZIONE_COLLECTION_H

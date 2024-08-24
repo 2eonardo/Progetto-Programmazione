@@ -8,4 +8,8 @@ add_executable(Progetto_Programmazione main.cpp
         note.cpp
         collection.h
         collection.cpp
+        Observer.h
+        ConcreteObserver.h
+        Subject.h
+        ConcreteObserver.cpp
 )
