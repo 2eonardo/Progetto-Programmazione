@@ -9,15 +9,13 @@
 
 using namespace std;
 
-class collection;
+class Collection;
 
-class note {
+class Note {
     public:
-        explicit note(string t="", string te="", bool b=false);
+        explicit Note(string t="", string te="", bool b=false);
 
-        const list<collection *> &getDirectory() const;
-
-        void setDirectory(const list<collection *> &directory);
+        const list<Collection *> &getDirectory() const;
 
         const string &getTitle() const;
 
@@ -31,14 +29,18 @@ class note {
 
         void setBlocked(bool blocked);
 
-        virtual ~note();
+        void RemoveDirectory(Collection * c);
+
+        void AddDirectory(Collection * c);
+
+        virtual ~Note();
 
     private:
         string title;
         string text;
         bool blocked;
         static int count ;
-        list<collection*> directory;
+        list<Collection*> directory;
 
 };
 
