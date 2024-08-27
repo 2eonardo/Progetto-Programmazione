@@ -3,11 +3,11 @@
 //
 #include "ConcreteObserver.h"
 
-ConcreteObserver::ConcreteObserver(collection *s): subject(s) {
+ConcreteObserver::ConcreteObserver(Collection *s): subject(s) {
     subject->registerObserver(this);
 }
 
-ConcreteObserver::~ConcreteObserver()  {
+ConcreteObserver::~ConcreteObserver() {
     subject->removeObserver(this);
 }
 

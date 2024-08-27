@@ -15,12 +15,13 @@ Collection::Collection(string t): title(t){
 
 void Collection::addNote(Note* b) {
     box.push_back(b);
-    b->AddDirectory(this);
+    b->addDirectory(this);
     notify();
 }
 
 void Collection::removeNote(Note *n) {
-    n->RemoveDirectory(this);
+    n->removeDirectory(this);
+    this->deleteNote(n);
 }
 
 void Collection::deleteNote(Note *n) {

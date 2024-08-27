@@ -29,9 +29,9 @@ class Note {
 
         void setBlocked(bool blocked);
 
-        void RemoveDirectory(Collection * c);
+        void removeDirectory(Collection * c);
 
-        void AddDirectory(Collection * c);
+        void addDirectory(Collection * c);
 
         virtual ~Note();
 

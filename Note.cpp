@@ -49,17 +49,17 @@ void Note::setBlocked(bool blocked) {
 
 Note::~Note() {
     for(auto itr : directory)
-        itr->DeleteNote(this);
+        itr->deleteNote(this);
 }
 
 const list<Collection *> &Note::getDirectory() const {
     return directory;
 }
 
-void Note::RemoveDirectory(Collection *c) {
+void Note::removeDirectory(Collection *c) {
     directory.remove(c);
 }
 
-void Note::AddDirectory(Collection *c) {
+void Note::addDirectory(Collection *c) {
     directory.push_back(c);
 }

@@ -6,15 +6,13 @@
 #define PROGETTO_PROGRAMMAZIONE_SUBJECT_H
 #include "Observer.h"
 class Subject {
-public:
-    virtual void registerObserver(Observer * o)=0;
+    public:
+        virtual void registerObserver(Observer * o)=0;
 
-    virtual void removeObserver(Observer * o)=0;
+        virtual void removeObserver(Observer * o)=0;
 
-    virtual void notify()=0;
+        virtual void notify()=0;
 
-    virtual ~Subject() {
-
-    }
+        virtual ~Subject() {}
 };
 #endif //PROGETTO_PROGRAMMAZIONE_SUBJECT_H
