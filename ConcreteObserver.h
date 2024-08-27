@@ -5,22 +5,22 @@
 #ifndef PROGETTO_PROGRAMMAZIONE_CONCRETEOBSERVER_H
 #define PROGETTO_PROGRAMMAZIONE_CONCRETEOBSERVER_H
 #include "Observer.h"
-#include "collection.h"
+#include "Collection.h"
 class ConcreteObserver: public Observer{
-public:
-    explicit ConcreteObserver(collection *s);
+    public:
+        explicit ConcreteObserver(Collection *s);
 
-    virtual void update() override;
+        virtual void update() override;
 
-    virtual void  attach() override;
+        virtual void  attach() override;
 
-    void detach() override;
+        void detach() override;
 
-    virtual ~ConcreteObserver() ;
+        virtual ~ConcreteObserver() ;
 
-private:
-    int NoteNumber;
-    collection * subject;
+    private:
+        int NoteNumber;
+        Collection * subject;
 };
 
 #endif //PROGETTO_PROGRAMMAZIONE_CONCRETEOBSERVER_H
