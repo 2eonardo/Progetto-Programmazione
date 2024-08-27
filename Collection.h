@@ -14,17 +14,19 @@ class Collection: public Subject{
     public:
         explicit Collection(string t="");
 
-        void AddNote(Note* n);
+        void addNote(Note* b);
 
-        void DeleteNote(Note* n );
+        void removeNote(Note* n );
+
+        void deleteNote(Note* n);
 
         const vector<Note *> &getBox() const;
 
-    const string &getTitle() const;
+        const string &getTitle() const;
 
-    void setTitle(const string &title);
+        void setTitle(const string &title);
 
-    void registerObserver(Observer * o) override;
+        void registerObserver(Observer * o) override;
 
         void removeObserver(Observer * o) override;
 

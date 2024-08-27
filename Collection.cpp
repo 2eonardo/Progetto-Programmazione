@@ -13,16 +13,19 @@ Collection::Collection(string t): title(t){
     }
 }
 
-void Collection::AddNote(Note* b) {
+void Collection::addNote(Note* b) {
     box.push_back(b);
     b->AddDirectory(this);
     notify();
 }
 
-void Collection::DeleteNote(Note *n) {
+void Collection::removeNote(Note *n) {
+    n->RemoveDirectory(this);
+}
+
+void Collection::deleteNote(Note *n) {
     auto itr = find(box.begin(), box.end(), n);
     box.erase(itr);
-    n->RemoveDirectory(this);
     notify();
 }
 
