@@ -34,6 +34,8 @@ int main() {
     collezione2.addNote(nota5);
     //stampa elementi collezione
     printCollection(collezione2);
+    // trova note
+    cout<<(collezione2.findNote("Note 2"))->getTitle()<< ", " <<"Trovato"<< endl;
     collezione1.addNote(nota1);
     //stampa elementi collezione
     printCollection(collezione1);

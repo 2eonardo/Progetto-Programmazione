@@ -30,6 +30,15 @@ void Collection::deleteNote(Note *n) {
     notify();
 }
 
+Note * Collection::findNote(string t) const {
+    Note * n=NULL;
+    int i =0;
+    for (; (i<box.size()) && (box.at(i)->getTitle().compare(t)!=0); i++);
+    if (i!=box.size())
+        n = box.at(i);
+    return n;
+}
+
 const vector<Note *> &Collection::getBox() const {
     return box;
 }

@@ -20,6 +20,8 @@ class Collection: public Subject{
 
         void deleteNote(Note* n);
 
+        Note * findNote(string t) const;
+
         const vector<Note *> &getBox() const;
 
         const string &getTitle() const;
