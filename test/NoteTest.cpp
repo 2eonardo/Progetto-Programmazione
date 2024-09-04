@@ -7,47 +7,54 @@
 #include "../Collection.h"
 #include "../ConcreteObserver.h"
 
-TEST(NoteFileTest, CreateNote) {
+TEST(NoteTest, CreateNote) {
     Note n("Pippo", "Ciao Pluto.");
     EXPECT_EQ(n.getTitle(), "Pippo");
 }
 
-TEST(NoteFileTest, CreateEmptyNote){
+TEST(NoteTest, CreateEmptyNote){
     Note n;
     EXPECT_EQ(n.getTitle(), "Note 1");
     EXPECT_EQ(n.getText(),"");
     EXPECT_EQ(n.isBlocked(), false);
 }
 
-TEST(NoteFileTest, SetTitleNote){
+TEST(NoteTest, SetTitleNote){
     Note n("Pippo", "Ciao Pluto.");
     n.setTitle("Topolino");
     EXPECT_EQ(n.getTitle(),"Topolino");
 }
 
-TEST(NoteFileTest, SetTextNote){
+TEST(NoteTest, SetTextNote){
     Note n("Pippo", "Ciao Pluto.");
     n.setText("Ciao Paperino.");
     EXPECT_EQ(n.getText(),"Ciao Paperino.");
 }
 
-TEST(NoteFileTest, SetBlockNote){
+TEST(NoteTest, SetBlockTitleTextNote){
+    Note n;
+    n.setBlocked(true);
+    EXPECT_EQ(n.setTitle("Pippo"), false);
+    EXPECT_EQ(n.setText("Ciao Pluto."), false);
+}
+
+TEST(NoteTest, SetBlockNote){
     Note n("Pippo", "Ciao Pluto.");
     n.setBlocked(true);
     EXPECT_EQ(n.isBlocked(), true);
 }
 
-TEST(NoteFileTest, CreateCollection){
+TEST(NoteTest, CreateCollection){
     Collection c("Walt Disney");
     EXPECT_EQ(c.getTitle(), "Walt Disney");
 }
 
-TEST(NoteFileTest, CreateEmptyCollection){
+TEST(NoteTest, CreateEmptyCollection){
     Collection c;
     EXPECT_EQ(c.getTitle(), "Collection 1");
 }
 
-TEST(NoteFileTest, SetTitleCollection){
+TEST(NoteTest, SetTitleCollection){
     Collection c;
     c.setTitle("Walt Disney");
     EXPECT_EQ(c.getTitle(), "Walt Disney");
