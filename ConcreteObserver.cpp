@@ -22,3 +22,7 @@ void ConcreteObserver::detach() {
 void ConcreteObserver::update() {
    NoteNumber= (subject->getBox()).size();
 }
+
+int ConcreteObserver::getNoteNumber() const {
+    return NoteNumber;
+}

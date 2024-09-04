@@ -10,6 +10,8 @@ class ConcreteObserver: public Observer{
     public:
         explicit ConcreteObserver(Collection *s);
 
+        int getNoteNumber() const;
+
         virtual void update() override;
 
         virtual void  attach() override;
