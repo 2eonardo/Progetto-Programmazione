@@ -3,10 +3,9 @@
 //
 #include "Note.h"
 #include "Collection.h"
-#include <iostream>
 int Note::count = 1;
 
-Note::Note(std::string t , std::string te, bool b ): title(t), text(te), blocked(b) {
+Note::Note(string t , string te, bool b ): title(t), text(te), blocked(b) {
     if (title.empty()){
         title = "Note " + to_string(count);
         count ++;

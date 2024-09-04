@@ -31,7 +31,7 @@ void Collection::deleteNote(Note *n) {
 }
 
 Note * Collection::findNote(string t) const {
-    Note * n=NULL;
+    Note * n= nullptr;
     int i =0;
     for (; (i<box.size()) && (box.at(i)->getTitle().compare(t)!=0); i++);
     if (i!=box.size())
