@@ -1,0 +1,8 @@
+# ninja log v5
+5	2384	7471624323038801	CMakeFiles/runNoteFileTests.dir/runAllTests.cpp.obj	488147f4367a779
+20	2392	7471624323088670	lib/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	2d8ddf1d01ec1513
+17	10501	7471624403997255	lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	b026183e4a31b7ba
+13	2634	7471624325509256	CMakeFiles/runNoteFileTests.dir/NoteFixture.cpp.obj	12baa9c7fcc7d17d
+10	2807	7471624327264832	CMakeFiles/runNoteFileTests.dir/NoteTest.cpp.obj	cb3257e386239c94
+10504	14410	7471624443326629	lib/libgtest.a	8478e681b0281b5d
+14411	14484	7471624444071504	lib/libgtest_main.a	a3424f4509993b28
