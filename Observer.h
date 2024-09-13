@@ -6,7 +6,7 @@
 #define PROGETTO_PROGRAMMAZIONE_OBSERVER_H
 class Observer{
     public:
-        virtual void update()=0;
+        virtual void update(int n)=0;
 
         virtual void attach()=0;
 

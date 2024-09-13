@@ -12,31 +12,16 @@
 using namespace std;
 class Collection: public Subject{
     public:
-        explicit Collection(string t="");
-
-        void addNote(Note* b);
-
-        void removeNote(Note* n );
-
-        void deleteNote(Note* n);
-
-        Note * findNote(string t) const;
-
-        const vector<Note *> &getBox() const;
-
+        explicit Collection(const string &t="");
         const string &getTitle() const;
-
         void setTitle(const string &title);
-
         void registerObserver(Observer * o) override;
-
         void removeObserver(Observer * o) override;
-
         virtual void notify() override;
 
     private:
         string title;
-        vector<Note*> box;
+        vector<Note> box;
         static int count;
         list<Observer *> observers;
 };
