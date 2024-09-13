@@ -13,35 +13,22 @@ class Collection;
 
 class Note {
     public:
-        explicit Note(string t="", string te="", bool b=false);
-
-        const list<Collection *> &getDirectory() const;
-
+        explicit Note(const string &t="", const string &te="", bool b=false, bool i= false);
         const string &getTitle() const;
-
-        bool setTitle(const string &title);
-
+        void setTitle(const string &title);
         const string &getText() const;
-
-        bool setText(const string &text);
-
+        void setText(const string &text);
         bool isBlocked() const;
-
         void setBlocked(bool blocked);
+        bool isImportant() const;
+        void setImportant(bool important);
 
-        void removeDirectory(Collection * c);
-
-        void addDirectory(Collection * c);
-
-        virtual ~Note();
-
-    private:
+private:
         string title;
         string text;
         bool blocked;
+        bool important;
         static int count ;
-        list<Collection*> directory;
-
 };
 
 #endif //PROGETTO_PROGRAMMAZIONE_NOTE_H

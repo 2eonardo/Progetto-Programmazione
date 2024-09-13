@@ -5,7 +5,7 @@
 #include "Collection.h"
 int Note::count = 1;
 
-Note::Note(string t , string te, bool b ): title(t), text(te), blocked(b) {
+Note::Note(const string &t ,const string &te, bool b, bool i ): title(t), text(te), blocked(b), important(i) {
     if (title.empty()){
         title = "Note " + to_string(count);
         count ++;
@@ -16,26 +16,8 @@ const string &Note::getTitle() const {
     return title;
 }
 
-bool Note::setTitle(const string &title) {
-    if (!blocked){
-        Note::title = title;
-        return true;
-    }
-    else
-        return false;
-}
-
 const string &Note::getText() const {
     return text;
-}
-
-bool Note::setText(const string &text) {
-    if (!blocked){
-        Note::text = text;
-        return true;
-    }
-    else
-        return false;
 }
 
 bool Note::isBlocked() const {
@@ -46,19 +28,19 @@ void Note::setBlocked(bool blocked) {
     Note::blocked = blocked;
 }
 
-Note::~Note() {
-    for(auto itr : directory)
-        itr->deleteNote(this);
+void Note::setTitle(const string &title) {
+    Note::title = title;
 }
 
-const list<Collection *> &Note::getDirectory() const {
-    return directory;
+void Note::setText(const string &text) {
+    Note::text = text;
 }
 
-void Note::removeDirectory(Collection *c) {
-    directory.remove(c);
+bool Note::isImportant() const {
+    return important;
 }
 
-void Note::addDirectory(Collection *c) {
-    directory.push_back(c);
+void Note::setImportant(bool important) {
+    Note::important = important;
 }
+
