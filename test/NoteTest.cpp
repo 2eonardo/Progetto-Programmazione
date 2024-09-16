@@ -5,7 +5,7 @@
 #include "gtest/gtest.h"
 #include "../Note.h"
 #include "../Collection.h"
-#include "../ConcreteObserver.h"
+#include "../CollectionObserver.h"
 
 TEST(NoteTest, CreateNote) {
     Note n("Pippo", "Ciao Pluto.");

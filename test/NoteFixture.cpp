@@ -4,17 +4,17 @@
 #include "gtest/gtest.h"
 #include "../Note.h"
 #include "../Collection.h"
-#include "../ConcreteObserver.h"
+#include "../CollectionObserver.h"
 class NoteFixture: public ::testing::Test{
     protected:
         Note * n;
         Collection * c;
-        ConcreteObserver * o;
+        CollectionObserver * o;
 
         void SetUp() override{
             n= new Note("Star Wars", "Che bel personaggio l'Imperatore");
             c= new Collection("Film");
-            o= new ConcreteObserver(c);
+            o= new CollectionObserver(c);
         }
 
         void TearDown() override{

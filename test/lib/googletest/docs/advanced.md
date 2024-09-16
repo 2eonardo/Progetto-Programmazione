@@ -1423,7 +1423,7 @@ You can see [sample6_unittest.cc] for a complete example.
 
 If you change your software's internal implementation, your tests should not
 break as long as the change is not observable by users. Therefore, **per the
-black-box testing principle, most of the time you should test your code through
+black-notes testing principle, most of the time you should test your code through
 its public interfaces.**
 
 **If you still find yourself needing to test internal implementation code,

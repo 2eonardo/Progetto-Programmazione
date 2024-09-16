@@ -11,8 +11,8 @@ set(SOURCE_FILES
     Note.h
     Collection.cpp
     Collection.h
-    ConcreteObserver.cpp
-    ConcreteObserver.h
+    CollectionObserver.cpp
+    CollectionObserver.h
     Observer.h
     Subject.h)
 add_executable(${CMAKE_PROJECT_NAME} main.cpp)

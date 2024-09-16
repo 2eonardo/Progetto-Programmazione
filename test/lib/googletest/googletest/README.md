@@ -134,7 +134,7 @@ adding it to the options for cmake via the`-DCMAKE_CXX_FLAGS` option.
 ### Tweaking GoogleTest
 
 GoogleTest can be used in diverse environments. The default configuration may
-not work (or may not work well) out of the box in some environments. However,
+not work (or may not work well) out of the notes in some environments. However,
 you can easily tweak GoogleTest by defining control macros on the compiler
 command line. Generally, these macros are named like `GTEST_XYZ` and you define
 them to either 1 or 0 to enable or disable a certain feature.
