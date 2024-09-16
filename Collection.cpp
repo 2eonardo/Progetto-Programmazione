@@ -14,14 +14,14 @@ Collection::Collection(const string &t): title(t){
 }
 
 void Collection::addNote(const Note &b) {
-    box.push_back(b);
+    notes.push_back(b);
     notify();
 }
 
 bool Collection::removeNote(const Note &n) {
     bool deleted= false;
-    auto itr = find(box.begin(), box.end(), n);
-    if (itr!= box.end() && !n.isBlocked())
+    auto itr = find(notes.begin(), notes.end(), n);
+    if (itr != notes.end() && !n.isBlocked())
         deleted=true;
     return deleted;
 }
@@ -53,9 +53,9 @@ void Collection::modifyImportantNote(Note &n, bool i) {
     n.setImportant(i);
 }
 
-vector<Note> Collection::findNote( const string &t) const {
+const vector<Note> Collection::findNote( const string &t) const {
     vector<Note> NoteTrovate;
-    for(auto itr: box){
+    for(auto itr: notes){
        if(((itr.getTitle()).find(t, 0 ))!=-1)
         NoteTrovate.push_back(itr);
     }
@@ -72,7 +72,7 @@ void Collection::removeObserver(Observer *o) {
 
 void Collection::notify() {
     for(auto itr : observers)
-        itr->update(box.size());
+        itr->update(notes.size());
 }
 
 const string &Collection::getTitle() const {
@@ -81,4 +81,8 @@ const string &Collection::getTitle() const {
 
 void Collection::setTitle(const string &title) {
     Collection::title = title;
+}
+
+const vector<Note> &Collection::getNotes() const {
+    return notes;
 }

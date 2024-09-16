@@ -19,8 +19,9 @@ class Collection: public Subject{
         bool modifyTextNote(Note &n, const string &te);
         void modifyBlockedNote(Note &n, bool b);
         void modifyImportantNote(Note &n, bool i);
-        vector<Note> findNote(const string &t) const;
+        const vector<Note> findNote(const string &t) const;
         const string &getTitle() const;
+        const vector<Note> &getNotes() const;
         void setTitle(const string &title);
         void registerObserver(Observer * o) override;
         void removeObserver(Observer * o) override;
@@ -28,7 +29,7 @@ class Collection: public Subject{
 
     private:
         string title;
-        vector<Note> box;
+        vector<Note> notes;
         static int count;
         list<Observer *> observers;
 };
