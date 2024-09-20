@@ -21,8 +21,11 @@ void Collection::addNote(const Note &b) {
 bool Collection::removeNote(const Note &n) {
     bool deleted= false;
     auto itr = find(notes.begin(), notes.end(), n);
-    if (itr != notes.end() && !n.isBlocked())
+    if (itr != notes.end() && !n.isBlocked()){
         deleted=true;
+        notes.erase(itr);
+        notify();
+    }
     return deleted;
 }
 bool Collection::modifyTitleNote(Note &n, const string &t) {
