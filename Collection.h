@@ -13,7 +13,7 @@ using namespace std;
 class Collection: public Subject{
     public:
         explicit Collection(const string &t="");
-        void addNote(const Note &b);
+        void addNote(const string &t = "", const string &te = "", bool b= false, bool i= false);
         bool removeNote(const Note &n );
         bool modifyTitleNote(Note &n, const string &t);
         bool modifyTextNote(Note &n, const string &te);

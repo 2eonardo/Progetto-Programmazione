@@ -13,8 +13,9 @@ Collection::Collection(const string &t): title(t){
     }
 }
 
-void Collection::addNote(const Note &b) {
-    notes.push_back(b);
+void Collection::addNote(const string &t, const string &te, bool b, bool i) {
+    Note n(t, te, b, i);
+    notes.push_back(n);
     notify();
 }
 
