@@ -19,42 +19,43 @@ void Collection::addNote(const string &t, const string &te, bool b, bool i) {
     notify();
 }
 
-bool Collection::removeNote(const Note &n) {
+bool Collection::removeNote(int n) {
     bool deleted= false;
-    auto itr = find(notes.begin(), notes.end(), n);
-    if (itr != notes.end() && !n.isBlocked()){
+    //auto itr = find(notes.begin(), notes.end(), n);
+    auto itr = notes.begin()+n;
+    if (itr != notes.end() && !notes[n].isBlocked()){
         deleted=true;
         notes.erase(itr);
         notify();
     }
     return deleted;
 }
-bool Collection::modifyTitleNote(Note &n, const string &t) {
-    if(!n.isBlocked())
+bool Collection::modifyTitleNote(int n, const string &t) {
+    if(!notes[n].isBlocked())
     {
-        n.setTitle(t);
+        notes[n].setTitle(t);
         return true;
     }
     else
         return false;
 }
 
-bool Collection::modifyTextNote(Note &n, const std::string &te) {
-    if(!n.isBlocked())
+bool Collection::modifyTextNote(int n, const string &te) {
+    if(!notes[n].isBlocked())
     {
-        n.setText(te);
+        notes[n].setText(te);
         return true;
     }
     else
         return false;
 }
 
-void Collection::modifyBlockedNote(Note &n, bool b) {
-    n.setBlocked(b);
+void Collection::modifyBlockedNote(int n, bool b) {
+    notes[n].setBlocked(b);
 }
 
-void Collection::modifyImportantNote(Note &n, bool i) {
-    n.setImportant(i);
+void Collection::modifyImportantNote(int n, bool i) {
+    notes[n].setImportant(i);
 }
 
 const vector<Note> Collection::findNote( const string &t) const {

@@ -14,11 +14,11 @@ class Collection: public Subject{
     public:
         explicit Collection(const string &t="");
         void addNote(const string &t = "", const string &te = "", bool b= false, bool i= false);
-        bool removeNote(const Note &n );
-        bool modifyTitleNote(Note &n, const string &t);
-        bool modifyTextNote(Note &n, const string &te);
-        void modifyBlockedNote(Note &n, bool b);
-        void modifyImportantNote(Note &n, bool i);
+        bool removeNote(int n );
+        bool modifyTitleNote(int n, const string &t);
+        bool modifyTextNote(int n, const string &te);
+        void modifyBlockedNote(int n, bool b);
+        void modifyImportantNote(int n, bool i);
         const vector<Note> findNote(const string &t) const;
         const string &getTitle() const;
         const vector<Note> &getNotes() const;

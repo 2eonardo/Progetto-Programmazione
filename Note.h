@@ -14,8 +14,6 @@ class Collection;
 class Note {
     public:
         explicit Note(const string &t, const string &te, bool b, bool i);
-        bool operator==(const Note &rhs) const;
-        bool operator!=(const Note &rhs) const;
         const string &getTitle() const;
         void setTitle(const string &title);
         const string &getText() const;

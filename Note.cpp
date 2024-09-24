@@ -43,15 +43,3 @@ bool Note::isImportant() const {
 void Note::setImportant(bool important) {
     Note::important = important;
 }
-
-bool Note::operator==(const Note &rhs) const {
-    return title == rhs.title &&
-           text == rhs.text &&
-           blocked == rhs.blocked &&
-           important == rhs.important;
-}
-
-bool Note::operator!=(const Note &rhs) const {
-    return !(rhs == *this);
-}
-
