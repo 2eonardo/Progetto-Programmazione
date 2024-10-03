@@ -3,9 +3,13 @@
 #include "Collection.h"
 #include "CollectionObserver.h"
 
-void stampa(const vector<Note> &c){
-    for(auto itr : c){
-        cout<<itr.getTitle()<<" "<< itr.getText() << endl;
+void printNote(const Note &n){
+    cout<< n.getTitle() << "  " << n.getText() << endl;
+}
+
+void printCollection(const Collection &c, int n) {
+    for(int i=0; i<n; i++){
+        printNote(c.readNote(i));
     }
 }
 
@@ -22,22 +26,25 @@ int main() {
     cout << "Numero Note: " << o.getNoteNumber() << endl;
     c.addNote();
     cout << "Numero Note: " << o.getNoteNumber() << endl;
-    stampa(c.getNotes());
+    printCollection(c, o.getNoteNumber());
     cout << "Trovato: " << endl;
-    stampa(c.findNote("sport"));
+    for (auto itr : c.findNote("sport")){
+        cout<< itr.getTitle() << "  " << itr.getText() << endl;
+    }
     c.modifyTitleNote(2, "Sport, nuoto");
     c.modifyTextNote(2, "La Pellegrini si è ritirata");
     c.modifyBlockedNote(0, true);
     c.modifyTitleNote(0, "Sport, nuoto");
     c.modifyTextNote(0, "La Pellegrini si è ritirata");
     cout << "Modificato: " << endl;
-    stampa(c.getNotes());
+    printNote(c.readNote(0));
+    printNote(c.readNote(2));
     c.removeNote(4);
     c.removeNote(0);
     cout << "Numero Note: " << o.getNoteNumber() << endl;
     c.removeNote(3);
     cout << "Numero Note: " << o.getNoteNumber() << endl;
     cout << "Eliminato: " << endl;
-    stampa(c.getNotes());
+    printCollection(c, o.getNoteNumber());
     return 0;
 }

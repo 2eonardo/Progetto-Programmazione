@@ -28,21 +28,21 @@ TEST(NoteTest, SetTitleCollection){
 TEST(NoteTest, CreateNote) {
     Collection c("Walt Disney");
     c.addNote("Star Wars", "L'imperatore Palpatine non è morto", true, true);
-    EXPECT_EQ(c.getNotes().at(0).getTitle(), "Star Wars");
-    EXPECT_EQ(c.getNotes().at(0).getText(), "L'imperatore Palpatine non è morto");
-    EXPECT_EQ(c.getNotes().at(0).isBlocked(), true);
-    EXPECT_EQ(c.getNotes().at(0).isBlocked(), true);
+    EXPECT_EQ(c.readNote(0).getTitle(), "Star Wars");
+    EXPECT_EQ(c.readNote(0).getText(), "L'imperatore Palpatine non è morto");
+    EXPECT_EQ(c.readNote(0).isBlocked(), true);
+    EXPECT_EQ(c.readNote(0).isBlocked(), true);
 }
 
 TEST(NoteTest, CreateEmptyNote){
     Collection c;
     c.addNote();
-    EXPECT_EQ(c.getNotes().at(0).getTitle(), "Note 1");
-    EXPECT_EQ(c.getNotes().at(0).getText(), "");
-    EXPECT_EQ(c.getNotes().at(0).isBlocked(), false);
-    EXPECT_EQ(c.getNotes().at(0).isBlocked(), false);
+    EXPECT_EQ(c.readNote(0).getTitle(), "Note 1");
+    EXPECT_EQ(c.readNote(0).getText(), "");
+    EXPECT_EQ(c.readNote(0).isBlocked(), false);
+    EXPECT_EQ(c.readNote(0).isBlocked(), false);
     c.addNote();
-    EXPECT_EQ(c.getNotes().at(1).getTitle(), "Note 2");
+    EXPECT_EQ(c.readNote(1).getTitle(), "Note 2");
 }
 
 TEST(NoteTest, DeleteNote){

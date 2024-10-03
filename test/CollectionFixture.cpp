@@ -28,9 +28,9 @@ TEST_F(NoteFixture, ModifyNoteTest){
     EXPECT_EQ(c->modifyTitleNote(1, "Anakin Skywalker"), true);
     EXPECT_EQ(c->modifyTextNote(1, "che storia triste"), true);
     c->modifyImportantNote(1, true);
-    EXPECT_EQ(c->getNotes().at(1).isImportant(), true);
+    EXPECT_EQ(c->readNote(1).isImportant(), true);
     c->modifyBlockedNote(1,true);
-    EXPECT_EQ(c->getNotes().at(1).isBlocked(), true);
+    EXPECT_EQ(c->readNote(1).isBlocked(), true);
 }
 
 TEST_F(NoteFixture, BlockedTest){
