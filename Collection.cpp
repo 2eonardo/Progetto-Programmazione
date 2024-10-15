@@ -87,6 +87,6 @@ void Collection::setTitle(const string &title) {
     Collection::title = title;
 }
 
-const Note Collection::readNote(int n) const {
+const Note & Collection::readNote(int n) const {
     return notes.at(n);
 }

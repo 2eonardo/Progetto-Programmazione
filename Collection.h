@@ -21,7 +21,7 @@ class Collection: public Subject{
         void modifyImportantNote(int n, bool i);
         const vector<Note> findNote(const string &t) const;
         const string &getTitle() const;
-        const Note readNote(int n) const;
+        const Note & readNote(int n) const;
         void setTitle(const string &title);
         void registerObserver(Observer * o) override;
         void removeObserver(Observer * o) override;
