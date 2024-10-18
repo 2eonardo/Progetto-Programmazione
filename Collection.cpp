@@ -49,11 +49,11 @@ bool Collection::modifyTextNote(int n, const string &te) {
         return false;
 }
 
-void Collection::modifyBlockedNote(int n, bool b) {
+void Collection::setBlockedNote(int n, bool b) {
     notes[n].setBlocked(b);
 }
 
-void Collection::modifyImportantNote(int n, bool i) {
+void Collection::setImportantNote(int n, bool i) {
     notes[n].setImportant(i);
 }
 

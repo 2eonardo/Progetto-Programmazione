@@ -17,8 +17,8 @@ class Collection: public Subject{
         bool removeNote(int n );
         bool modifyTitleNote(int n, const string &t);
         bool modifyTextNote(int n, const string &te);
-        void modifyBlockedNote(int n, bool b);
-        void modifyImportantNote(int n, bool i);
+        void setBlockedNote(int n, bool b);
+        void setImportantNote(int n, bool i);
         const vector<Note> findNote(const string &t) const;
         const string &getTitle() const;
         const Note & readNote(int n) const;

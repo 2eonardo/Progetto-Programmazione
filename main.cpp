@@ -33,7 +33,7 @@ int main() {
     }
     c.modifyTitleNote(2, "Sport, nuoto");
     c.modifyTextNote(2, "La Pellegrini si è ritirata");
-    c.modifyBlockedNote(0, true);
+    c.setBlockedNote(0, true);
     c.modifyTitleNote(0, "Sport, nuoto");
     c.modifyTextNote(0, "La Pellegrini si è ritirata");
     cout << "Modificato: " << endl;
