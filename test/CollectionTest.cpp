@@ -49,6 +49,7 @@ TEST(NoteTest, DeleteNote){
     Collection c;
     c.addNote();
     EXPECT_EQ(c.removeNote(0), true);
+    EXPECT_EQ(c.removeNote(0), false);
 }
 
 

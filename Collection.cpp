@@ -2,7 +2,7 @@
 // Created by Leo on 20/08/2024.
 //
 #include "Collection.h"
-#include <algorithm>
+
 
 int Collection::count =1;
 
@@ -21,16 +21,15 @@ void Collection::addNote(const string &t, const string &te, bool b, bool i) {
 
 bool Collection::removeNote(int n) {
     bool deleted= false;
-    auto itr = notes.begin()+n;
-    if ( !notes[n].isBlocked()){
+    if ( !notes[n].isBlocked() && n<notes.size()){
         deleted=true;
-        notes.erase(itr);
+        notes.erase(notes.begin()+n);
         notify();
     }
     return deleted;
 }
 bool Collection::modifyTitleNote(int n, const string &t) {
-    if(!notes[n].isBlocked())
+    if(!notes[n].isBlocked() && n<notes.size())
     {
         notes[n].setTitle(t);
         return true;
@@ -40,7 +39,7 @@ bool Collection::modifyTitleNote(int n, const string &t) {
 }
 
 bool Collection::modifyTextNote(int n, const string &te) {
-    if(!notes[n].isBlocked())
+    if(!notes[n].isBlocked() && n<notes.size())
     {
         notes[n].setText(te);
         return true;
@@ -49,12 +48,20 @@ bool Collection::modifyTextNote(int n, const string &te) {
         return false;
 }
 
-void Collection::setBlockedNote(int n, bool b) {
-    notes[n].setBlocked(b);
+bool Collection::setBlockedNote(int n, bool b) {
+    if(n<notes.size()){
+        notes[n].setBlocked(b);
+        return true;
+    }
+    return false;
 }
 
-void Collection::setImportantNote(int n, bool i) {
-    notes[n].setImportant(i);
+bool Collection::setImportantNote(int n, bool i) {
+    if(n<notes.size()){
+        notes[n].setImportant(i);
+        return true;
+    }
+    return false;
 }
 
 const vector<Note> Collection::findNote( const string &t) const {

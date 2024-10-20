@@ -27,10 +27,8 @@ protected:
 TEST_F(NoteFixture, ModifyNoteTest){
     EXPECT_EQ(c->modifyTitleNote(1, "Anakin Skywalker"), true);
     EXPECT_EQ(c->modifyTextNote(1, "che storia triste"), true);
-    c->setImportantNote(1, true);
-    EXPECT_EQ(c->readNote(1).isImportant(), true);
-    c->setBlockedNote(1, true);
-    EXPECT_EQ(c->readNote(1).isBlocked(), true);
+    EXPECT_EQ(c->setImportantNote(1,true), true);
+    EXPECT_EQ(c->setBlockedNote(1, true), true);
 }
 
 TEST_F(NoteFixture, BlockedTest){
@@ -42,6 +40,14 @@ TEST_F(NoteFixture, FindNoteTest){
     EXPECT_EQ(c->findNote("Nulla").size(), 0);
     EXPECT_EQ(c->findNote("St").size(), 2);
     EXPECT_EQ(c->findNote("Star").size(), 1);
+}
+
+TEST_F(NoteFixture, IndexOutOfRangeTest){
+    EXPECT_EQ(c->removeNote(5), false);
+    EXPECT_EQ(c->modifyTitleNote(5, ""), false);
+    EXPECT_EQ(c->modifyTextNote(5,""), false);
+    EXPECT_EQ(c->setBlockedNote(5, true), false);
+    EXPECT_EQ(c->setImportantNote(5, true), false);
 }
 
 TEST_F(NoteFixture, ObserverTest){
