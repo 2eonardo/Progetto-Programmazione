@@ -21,7 +21,7 @@ void Collection::addNote(const string &t, const string &te, bool b, bool i) {
 
 bool Collection::removeNote(int n) {
     bool deleted= false;
-    if ( !notes[n].isBlocked() && n<notes.size()){
+    if (  n>=0 && n<notes.size() && !notes[n].isBlocked()){
         deleted=true;
         notes.erase(notes.begin()+n);
         notify();
@@ -29,7 +29,7 @@ bool Collection::removeNote(int n) {
     return deleted;
 }
 bool Collection::modifyTitleNote(int n, const string &t) {
-    if(!notes[n].isBlocked() && n<notes.size())
+    if( n>=0 && n<notes.size() && !notes[n].isBlocked())
     {
         notes[n].setTitle(t);
         return true;
@@ -39,7 +39,7 @@ bool Collection::modifyTitleNote(int n, const string &t) {
 }
 
 bool Collection::modifyTextNote(int n, const string &te) {
-    if(!notes[n].isBlocked() && n<notes.size())
+    if( n>=0 && n<notes.size() && !notes[n].isBlocked())
     {
         notes[n].setText(te);
         return true;
@@ -49,7 +49,7 @@ bool Collection::modifyTextNote(int n, const string &te) {
 }
 
 bool Collection::setBlockedNote(int n, bool b) {
-    if(n<notes.size()){
+    if(n>=0 && n<notes.size()){
         notes[n].setBlocked(b);
         return true;
     }
@@ -57,7 +57,7 @@ bool Collection::setBlockedNote(int n, bool b) {
 }
 
 bool Collection::setImportantNote(int n, bool i) {
-    if(n<notes.size()){
+    if(n>=0 && n<notes.size()){
         notes[n].setImportant(i);
         return true;
     }
@@ -94,6 +94,9 @@ void Collection::setTitle(const string &title) {
     Collection::title = title;
 }
 
-const Note & Collection::readNote(int n) const {
-    return notes.at(n);
+const Note Collection::readNote(int n) const {
+    if (n>=0 && n<notes.size())
+        return notes.at(n);
+    else
+        return Note();
 }

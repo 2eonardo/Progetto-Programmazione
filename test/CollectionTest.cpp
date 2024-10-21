@@ -37,12 +37,12 @@ TEST(NoteTest, CreateNote) {
 TEST(NoteTest, CreateEmptyNote){
     Collection c;
     c.addNote();
-    EXPECT_EQ(c.readNote(0).getTitle(), "Note 1");
+    EXPECT_EQ(c.readNote(0).getTitle(), "Note 3");
     EXPECT_EQ(c.readNote(0).getText(), "");
     EXPECT_EQ(c.readNote(0).isBlocked(), false);
     EXPECT_EQ(c.readNote(0).isBlocked(), false);
     c.addNote();
-    EXPECT_EQ(c.readNote(1).getTitle(), "Note 2");
+    EXPECT_EQ(c.readNote(1).getTitle(), "Note 4");
 }
 
 TEST(NoteTest, DeleteNote){

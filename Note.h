@@ -13,7 +13,7 @@ class Collection;
 
 class Note {
     public:
-        explicit Note(const string &t, const string &te, bool b, bool i);
+        explicit Note(const string &t="", const string &te="", bool b=false, bool i=false);
         const string &getTitle() const;
         void setTitle(const string &title);
         const string &getText() const;

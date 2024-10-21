@@ -50,12 +50,33 @@ TEST_F(NoteFixture, ReadNoteTest){
     EXPECT_EQ(n.getTitle(), "Star Wars");
 }
 
-TEST_F(NoteFixture, IndexOutOfRangeTest){
+TEST_F(NoteFixture, ReadNoteOutOfRangeTest){
+    const Note& n1 = c->readNote(-2);
+    EXPECT_EQ(n1.isBlocked(), false);
+    EXPECT_EQ(n1.isImportant(), false);
+    EXPECT_EQ(n1.getText(), "");
+    EXPECT_EQ(n1.getTitle(), "Note 1");
+    const Note& n2 = c->readNote(5);
+    EXPECT_EQ(n2.isBlocked(), false);
+    EXPECT_EQ(n2.isImportant(), false);
+    EXPECT_EQ(n2.getText(), "");
+    EXPECT_EQ(n2.getTitle(), "Note 2");
+}
+
+TEST_F(NoteFixture, PositiveIndexOutOfRangeTest){
     EXPECT_EQ(c->removeNote(5), false);
     EXPECT_EQ(c->modifyTitleNote(5, ""), false);
     EXPECT_EQ(c->modifyTextNote(5,""), false);
     EXPECT_EQ(c->setBlockedNote(5, true), false);
     EXPECT_EQ(c->setImportantNote(5, true), false);
+}
+
+TEST_F(NoteFixture, NegativeIndexOutOfRangeTest){
+    EXPECT_EQ(c->removeNote(-5), false);
+    EXPECT_EQ(c->modifyTitleNote(-5, ""), false);
+    EXPECT_EQ(c->modifyTextNote(-5,""), false);
+    EXPECT_EQ(c->setBlockedNote(-5, true), false);
+    EXPECT_EQ(c->setImportantNote(-5, true), false);
 }
 
 TEST_F(NoteFixture, ObserverTest){
@@ -69,7 +90,7 @@ TEST_F(NoteFixture, ObserverTest){
     EXPECT_EQ(o->getNoteNumber(), 3);
 }
 
-TEST_F(NoteFixture, TestAttachDetachObserver){
+TEST_F(NoteFixture, AttachDetachObserverTest){
     EXPECT_EQ(o->getNoteNumber(), 3);
     o->detach();
     c->addNote("Test");
