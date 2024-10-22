@@ -43,11 +43,11 @@ TEST_F(NoteFixture, FindNoteTest){
 }
 
 TEST_F(NoteFixture, ReadNoteTest){
-    const Note& n = c->readNote(0);
-    EXPECT_EQ(n.isBlocked(), false);
+    const Note& n = c->readNote(2);
+    EXPECT_EQ(n.isBlocked(), true);
     EXPECT_EQ(n.isImportant(), false);
-    EXPECT_EQ(n.getText(), "L'imperatore Palpatine non è morto");
-    EXPECT_EQ(n.getTitle(), "Star Wars");
+    EXPECT_EQ(n.getText(), "Dovrebbero aggiustare la mira");
+    EXPECT_EQ(n.getTitle(), "Storm trupper");
 }
 
 TEST_F(NoteFixture, ReadNoteOutOfRangeTest){
